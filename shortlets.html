@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pegasus - Premium shortlet apartments in Abuja and Lagos for discerning travelers.">
+    <meta name="keywords" content="luxury shortlets, premium apartments Abuja, luxury accommodation Lagos, executive stays Nigeria">
+    <title>Pegasus | Luxury Shortlets</title>
+    <link rel="icon" href="Rent Wise Logo .png" type="image/x-icon">
+    <style>
+        /* Airbnb-inspired Styles */
+        :root {
+            --airbnb-red: #FF5A5F;
+            --airbnb-dark: #484848;
+            --airbnb-light: #767676;
+            --airbnb-white: #FFFFFF;
+            --airbnb-background: #FFFFFF;
+            --airbnb-border: #EBEBEB;
+            --airbnb-hover: #F7F7F7;
+            --airbnb-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+            --transition: all 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--airbnb-background);
+            color: var(--airbnb-dark);
+            font-family: 'Circular', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--airbnb-background);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--airbnb-red);
+            border-radius: 4px;
+        }
+
+        /* Header/Navigation */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--airbnb-white);
+            padding: 14px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--airbnb-border);
+            box-shadow: var(--airbnb-shadow);
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--airbnb-red);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 32px;
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--airbnb-dark);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 10px 0;
+        }
+
+        .nav-link:hover {
+            color: var(--airbnb-red);
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .host-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--airbnb-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .host-link:hover {
+            color: var(--airbnb-red);
+        }
+
+        .language-selector {
+            font-size: 14px;
+            color: var(--airbnb-dark);
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .language-selector:hover {
+            background-color: var(--airbnb-hover);
+        }
+
+        .menu-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border: 1px solid var(--airbnb-border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .menu-button:hover {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+        }
+
+        .user-icon {
+            font-size: 16px;
+            color: var(--airbnb-light);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--airbnb-dark);
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--airbnb-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        /* Filter Section - Airbnb Style */
+        .filters-container {
+            margin-bottom: 40px;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 30px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--airbnb-border);
+            margin-bottom: 24px;
+            overflow-x: auto;
+        }
+
+        .filter-tab {
+            font-size: 14px;
+            color: var(--airbnb-light);
+            padding-bottom: 16px;
+            cursor: pointer;
+            position: relative;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .filter-tab.active {
+            color: var(--airbnb-dark);
+            font-weight: 500;
+        }
+
+        .filter-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--airbnb-dark);
+        }
+
+        .filter-tab:hover {
+            color: var(--airbnb-dark);
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--airbnb-dark);
+        }
+
+        .filter-select, .filter-input {
+            padding: 12px 16px;
+            border: 1px solid var(--airbnb-border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .filter-select:focus, .filter-input:focus {
+            outline: none;
+            border-color: var(--airbnb-dark);
+        }
+
+        .filter-button {
+            padding: 14px 24px;
+            background-color: var(--airbnb-red);
+            color: var(--airbnb-white);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 500;
+            transition: var(--transition);
+            margin-top: 8px;
+        }
+
+        .filter-button:hover {
+            background-color: #FF7075;
+        }
+
+        /* Properties Grid */
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .property-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid var(--airbnb-border);
+        }
+
+        .property-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--airbnb-shadow);
+        }
+
+        .property-image-container {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .property-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .property-card:hover .property-image {
+            transform: scale(1.05);
+        }
+
+        .wishlist-button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 28px;
+            height: 28px;
+            background-color: var(--airbnb-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .wishlist-button:hover {
+            transform: scale(1.1);
+        }
+
+        .wishlist-icon {
+            color: var(--airbnb-dark);
+            font-size: 14px;
+        }
+
+        .property-content {
+            padding: 16px;
+        }
+
+        .property-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .property-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--airbnb-dark);
+            margin-bottom: 4px;
+        }
+
+        .property-location {
+            font-size: 14px;
+            color: var(--airbnb-light);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--airbnb-light);
+        }
+
+        .property-price {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .price {
+            font-weight: 600;
+            color: var(--airbnb-dark);
+        }
+
+        .price::before {
+            content: '₦';
+        }
+
+        .night {
+            color: var(--airbnb-light);
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .star-icon {
+            color: var(--airbnb-red);
+            font-size: 12px;
+        }
+
+        .rating-value {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Book Now Button */
+        .book-now-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--airbnb-red);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 12px;
+        }
+
+        .book-now-button:hover {
+            background-color: #FF7075;
+        }
+
+        /* Booking Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+            background: var(--airbnb-white);
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 30px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            color: var(--airbnb-light);
+            font-size: 16px;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--airbnb-border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--airbnb-red);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            grid-column: span 2;
+            background-color: var(--airbnb-red);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .form-submit:hover {
+            background-color: #FF7075;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--airbnb-dark);
+            font-size: 30px;
+            cursor: pointer;
+            background: transparent;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            color: var(--airbnb-red);
+            transform: scale(1.05);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: #f0fff4;
+            border-radius: 12px;
+            border-left: 4px solid #38a169;
+        }
+
+        .success-icon {
+            font-size: 48px;
+            color: #38a169;
+            margin-bottom: 15px;
+        }
+
+        .success-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+
+        .success-text {
+            color: var(--airbnb-light);
+            margin-bottom: 20px;
+        }
+
+        /* Modal for image gallery */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.92);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: var(--airbnb-white);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .close-gallery-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--airbnb-white);
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.6);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .close-gallery-modal:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+        }
+
+        .modal-nav-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--airbnb-dark);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-nav-button:hover {
+            background: var(--airbnb-white);
+            transform: scale(1.1);
+        }
+
+        .modal-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            overflow-x: auto;
+            padding: 16px;
+            background: var(--airbnb-white);
+        }
+
+        .modal-thumbnail {
+            width: 70px;
+            height: 50px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .modal-thumbnail.active {
+            border-color: var(--airbnb-red);
+            opacity: 1;
+        }
+
+        .modal-thumbnail:hover {
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--airbnb-background);
+            border-top: 1px solid var(--airbnb-border);
+            padding: 40px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--airbnb-dark);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            font-size: 14px;
+            color: var(--airbnb-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--airbnb-red);
+        }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid var(--airbnb-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: var(--airbnb-light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            color: var(--airbnb-dark);
+            text-decoration: none;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--airbnb-red);
+        }
+
+        /* Responsive */
+        @media (max-width: 1128px) {
+            .properties-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 950px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .form-submit {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 14px 24px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .main-content {
+                padding: 24px;
+            }
+            
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 12px 16px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .host-link {
+                display: none;
+            }
+            
+            .page-title {
+                font-size: 26px;
+            }
+            
+            .filter-tabs {
+                gap: 20px;
+            }
+            
+            .property-image-container {
+                height: 220px;
+            }
+            
+            .modal-content {
+                padding: 20px;
+            }
+        }
+        
+    </style>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <img src="Rent Wise Logo  (1).png" alt="Pegasus Logo">
+            Pegasus
+        </a>
+        
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About </a>
+                     <a href="rent.html" class="nav-link">Rent  </a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        
+        <div class="user-menu">
+            <a href="Host.html" class="host-link">Become a Host</a>
+       
+            <div class="menu-button">
+                <i class="fas fa-bars user-icon"></i>
+                <i class="fas fa-user-circle user-icon"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">Luxury Shortlets</h1>
+        <p class="page-subtitle">Experience unparalleled comfort in our premium accommodations across Abuja and Lagos. Curated spaces that redefine luxury living for the discerning traveler.</p>
+        
+        <!-- Filter Section -->
+        <div class="filters-container">
+            <div class="filter-tabs">
+              
+            </div>
+            
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label class="filter-label">Location</label>
+                    <select class="filter-select" id="location-filter">
+                        <option value="all">All Locations</option>
+                        <option value="abuja">All Abuja</option>
+                        <option value="jahi">Jahi</option>
+                        <option value="idu">Idu</option>
+                        <option value="maitama">Maitama</option>
+                        <option value="katampe">Katampe</option>
+                        <option value="guzape">Guzape</option>
+                        <option value="wuse">Wuse</option>
+                        <option value="lugbe">Lugbe</option>
+                        <option value="utako">Utako</option>
+                        <option value="wuye">Wuye</option>
+                        <option value="kado">Kado</option>
+                        <option value="jabi">Jabi</option>
+                        <option value="apo">Apo</option>
+                        <option value="garki">Garki</option>
+                        <option value="asokoro">Asokoro</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Check in</label>
+                    <input type="date" class="filter-input" id="checkin-date">
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Check out</label>
+                    <input type="date" class="filter-input" id="checkout-date">
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Guests</label>
+                    <select class="filter-select" id="guests-filter">
+                        <option value="all">Any</option>
+                        <option value="1">1 guest</option>
+                        <option value="2">2 guests</option>
+                        <option value="3">3 guests</option>
+                        <option value="4">4+ guests</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Price Range (₦)</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="number" class="filter-input" id="min-price" placeholder="Min" min="0">
+                        <input type="number" class="filter-input" id="max-price" placeholder="Max" min="0">
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Bedrooms</label>
+                    <select class="filter-select" id="bedrooms-filter">
+                        <option value="all">Any</option>
+                        <option value="1">1 Bedroom</option>
+                        <option value="2">2 Bedrooms</option>
+                        <option value="3">3 Bedrooms</option>
+                        <option value="4">4+ Bedrooms</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Beds</label>
+                    <select class="filter-select" id="beds-filter">
+                        <option value="all">Any</option>
+                        <option value="1">1 Bed</option>
+                        <option value="2">2 Beds</option>
+                        <option value="3">3+ Beds</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Bathrooms</label>
+                    <select class="filter-select" id="bathrooms-filter">
+                        <option value="all">Any</option>
+                        <option value="1">1 Bathroom</option>
+                        <option value="2">2 Bathrooms</option>
+                        <option value="3">3+ Bathrooms</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="filter-button" id="apply-filters">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div>
+        
+        <!-- Properties Grid -->
+        <div class="properties-grid">
+            <!-- Property cards will be dynamically generated by JavaScript -->
+        </div>
+
+        <!-- Booking Modal -->
+        <div class="modal" id="booking-modal">
+            <div class="modal-content">
+                <span class="close-modal" id="close-booking-modal">&times;</span>
+                <div class="modal-header">
+                    <h2 class="modal-title">Book Your Stay</h2>
+                    <p class="modal-subtitle" id="booking-property-title">Luxury Apartment in Abuja</p>
+                </div>
+                
+                <form id="booking-form" class="booking-form" action="https://formspree.io/f/meolwjvn" method="POST">
+                    <input type="hidden" id="property-id" name="property_id">
+                    <input type="hidden" id="property-name" name="property_name">
+                    <input type="hidden" id="property-location" name="property_location">
+                    <input type="hidden" id="property-price" name="property_price">
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="guests">Number of Guests *</label>
+                        <select id="guests" name="guests" class="form-select" required>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5+ Guests</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="checkin">Check-in Date *</label>
+                        <input type="date" id="checkin" name="checkin" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="checkout">Check-out Date *</label>
+                        <input type="date" id="checkout" name="checkout" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="nights">Number of Nights *</label>
+                        <input type="number" id="nights" name="nights" class="form-input" min="1" required readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="total-price">Total Price (₦)</label>
+                        <input type="text" id="total-price" name="total_price" class="form-input" readonly>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label class="form-label" for="message">Special Requests</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Any special requests or additional information..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Confirm Booking</button>
+                </form>
+                
+                <div id="success-message" class="success-message">
+                    <i class="fas fa-check-circle success-icon"></i>
+                    <h3 class="success-title">Booking Request Submitted!</h3>
+                    <p class="success-text">We've received your booking request and will contact you shortly to confirm your reservation.</p>
+                    <button class="book-now-button" id="close-success-message">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for image gallery -->
+        <div class="gallery-modal" id="image-modal">
+            <div class="gallery-modal-content">
+                <span class="close-gallery-modal" id="close-gallery-modal">&times;</span>
+                <img class="modal-image" id="modal-image" src="" alt="">
+                <div class="modal-nav">
+                    <button class="modal-nav-button" id="prev-modal-image">&lt;</button>
+                    <button class="modal-nav-button" id="next-modal-image">&gt;</button>
+                </div>
+                <div class="modal-thumbnails" id="modal-thumbnails">
+                    <!-- Thumbnails will be added by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Support</h3>
+                <div class="footer-links">
+                    <a href="support.html" class="footer-link">Help Center</a>
+                    <a href="support.html" class="footer-link">Safety information</a>
+                    <a href="support.html" class="footer-link">Cancellation options</a>
+                    <a href="support.html" class="footer-link">Report an issue</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Community</h3>
+                <div class="footer-links">
+                    <a href="Blog.html" class="footer-link">Refer a friend</a>
+                    <a href="Blog.html" class="footer-link">Community forum</a>
+                    <a href="Blog.html" class="footer-link">Travel stories</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Hosting</h3>
+                <div class="footer-links">
+                    <a href="Host.html" class="footer-link">List your property</a>
+                    <a href="Host.html" class="footer-link">Host resources</a>
+                    <a href="Host.html" class="footer-link">Host community</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>About</h3>
+                <div class="footer-links">
+                    <a href="about.html" class="footer-link">About Pegasus</a>
+                    <a href="about.html" class="footer-link">Careers</a>
+                    <a href="about.html" class="footer-link">Press</a>
+                    <a href="contact.html" class="footer-link">Contact us</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>© 2025 Pegasus, Inc. All rights reserved</p>
+            </div>
+            
+            <div class="social-links">
+                <a href="contact.html" class="social-link">Privacy</a>
+                <a href="about.html" class="social-link">Terms</a>
+               
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced luxury property data
+        const properties = [
+            {
+                id: 1,
+                title: "COZY 3 BEDROOM APARTMENT AVAILABLE  ",
+                location: "Jahi, Abuja",
+                price: 230000,
+                rating: 4.89,
+                images: [
+                    "z (10).jpg",
+                   "z (2).jpg",
+                   "z (3).jpg",
+                   "z (4).jpg",
+                   "z (5).jpg",
+                   "z (6).jpg",
+                   "z (7).jpg",
+                   "z (8).jpg",
+                   "z (9).jpg",
+                ],
+                bedrooms: 3,
+                beds: 3,
+                bathrooms: 3,
+                features: ["WiFi", "Netflix", "Gym", "Security", "Parking"],
+                description: "COZY 3 BEDROOM APARTMENT AVAILABLE FOR SHORTLET LOCATION:JAHI,ABUJA PRICE :230k/Night..2bed: 210k Features👇 PS5 Wifi/Netflix Cleaning services Sercurity  "
+            },
+            {
+                id: 2,
+                title: "LUXURY 1 BEDROOM APARTMENT AVAILABLE FOR SHORTLET LOCATION:WUYE,ABUJA  ",
+                location: "Wuye, Abuja",
+                price: 180000,
+                rating: 4.95,
+                images: [
+                     "za (5).jpg",
+                   "za (2).jpg",
+                   "za (3).jpg",
+                   "za (4).jpg",
+                   "za (5).jpg",
+                   "za (6).jpg",
+                   "za (7).jpg",
+                 
+                    
+                ],
+                bedrooms: 1,
+                beds: 1,
+                bathrooms: 1,
+                features: ["Netflix ", "WiFi", "Concierge", "Parking"],
+                description: " LUXURY 1 BEDROOM APARTMENT AVAILABLE FOR SHORTLET LOCATION:WUYE,ABUJA PRICE :180k/Night Features👇 Fully automated Balcony Wifi/Netflix Cleaning services Sercurity "
+            },
+            {
+                id: 3,
+                title: "Spacious Studio Apartment in Maitama",
+                location: "Maitama, Abuja",
+                price: 140000,
+                rating: 4.28,
+                images: [
+                    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                bedrooms: 2,
+                beds: 2,
+                bathrooms: 2,
+                description: "A spacious studio apartment in the heart of Maitama, featuring modern amenities and a rooftop lounge with city views."
+            },
+            {
+                id: 4,
+                title: "One Bedroom Apartment in Katampe extension",
+                location: "Katampe, Abuja",
+                price: 165000,
+                rating: 4.97,
+                images: [
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                bedrooms: 1,
+                beds: 1,
+                bathrooms: 1,
+                description: "A luxurious one-bedroom apartment in Katampe extension, featuring a private balcony, modern kitchen, and access to a fitness center."
+            },
+            {
+                id: 5,
+                title: "Two Bedroom Apartment in Guzape",
+                location: "Guzape, Abuja",
+                price: 180000,
+                rating: 4.82,
+                images: [
+                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                bedrooms: 2,
+                beds: 2,
+                bathrooms: 2,
+                description: "A stylish two-bedroom apartment in Guzape, offering a spacious living area, modern amenities, and stunning views of the city skyline."
+            },
+            {
+                id: 6,
+                title: "Modern Three Bedroom Apartment in Wuse 2",
+                location: "Wuse, Abuja",
+                price: 185000,
+                rating: 4.86,
+                images: [
+                    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                bedrooms: 2,
+                beds: 2,
+                bathrooms: 2,
+                description: "A modern three-bedroom apartment in Wuse 2, featuring a fully equipped kitchen, spacious living area, and access to a rooftop pool."
+            },
+            {
+                id: 7,
+                title: "Luxury Apartment in Asokoro",
+                location: "Asokoro, Abuja",
+                price: 220000,
+                rating: 4.92,
+                images: [
+                    "https://images.unsplash.com/photo-1600566753151-384129cf4e3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                bedrooms: 3,
+                beds: 3,
+                bathrooms: 3,
+                description: "A premium three-bedroom apartment in the prestigious Asokoro district, offering luxury amenities and exceptional comfort."
+            },
+            {
+                id: 8,
+                title: "Executive Suite in Garki",
+                location: "Garki, Abuja",
+                price: 95000,
+                rating: 4.75,
+                images: [
+                    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                bedrooms: 1,
+                beds: 1,
+                bathrooms: 1,
+                description: "A modern executive suite in Garki, perfect for business travelers with convenient access to the city center."
+            }
+        ];
+
+        // DOM Elements
+        const gridContainer = document.querySelector('.properties-grid');
+        const applyFiltersBtn = document.getElementById('apply-filters');
+        const locationFilter = document.getElementById('location-filter');
+        const minPriceInput = document.getElementById('min-price');
+        const maxPriceInput = document.getElementById('max-price');
+        const bedroomsFilter = document.getElementById('bedrooms-filter');
+        const bedsFilter = document.getElementById('beds-filter');
+        const bathroomsFilter = document.getElementById('bathrooms-filter');
+        const guestsFilter = document.getElementById('guests-filter');
+
+        // Modal Elements
+        const bookingModal = document.getElementById('booking-modal');
+        const bookingForm = document.getElementById('booking-form');
+        const bookingPropertyTitle = document.getElementById('booking-property-title');
+        const propertyIdInput = document.getElementById('property-id');
+        const propertyNameInput = document.getElementById('property-name');
+        const propertyLocationInput = document.getElementById('property-location');
+        const propertyPriceInput = document.getElementById('property-price');
+        const nightsInput = document.getElementById('nights');
+        const totalPriceInput = document.getElementById('total-price');
+        const checkinInput = document.getElementById('checkin');
+        const checkoutInput = document.getElementById('checkout');
+        const closeBookingModalBtn = document.getElementById('close-booking-modal');
+        const successMessage = document.getElementById('success-message');
+        const closeSuccessMessageBtn = document.getElementById('close-success-message');
+
+        // Gallery Modal Elements
+        const galleryModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeGalleryModalBtn = document.getElementById('close-gallery-modal');
+        const prevModalBtn = document.getElementById('prev-modal-image');
+        const nextModalBtn = document.getElementById('next-modal-image');
+        const modalThumbnails = document.getElementById('modal-thumbnails');
+
+        // State
+        let filteredProperties = [...properties];
+        let modalImages = [];
+        let modalImageIndex = 0;
+        let selectedProperty = null;
+
+        // Properties Grid Rendering
+        function renderGrid(propertiesList) {
+            gridContainer.innerHTML = '';
+            if (propertiesList.length === 0) {
+                gridContainer.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--airbnb-light);">No properties match your filters. Try adjusting your search criteria.</p>';
+                return;
+            }
+
+            propertiesList.forEach((property) => {
+                const card = document.createElement('div');
+                card.className = 'property-card';
+
+                const imgContainer = document.createElement('div');
+                imgContainer.className = 'property-image-container';
+
+                const mainImg = document.createElement('img');
+                mainImg.className = 'property-image';
+                mainImg.src = property.images[0];
+                mainImg.alt = property.title;
+                mainImg.addEventListener('click', () => openGalleryModal(property.images, 0));
+                imgContainer.appendChild(mainImg);
+
+                // Wishlist button
+                const wishlistBtn = document.createElement('div');
+                wishlistBtn.className = 'wishlist-button';
+                wishlistBtn.innerHTML = '<i class="far fa-heart wishlist-icon"></i>';
+                imgContainer.appendChild(wishlistBtn);
+
+                card.appendChild(imgContainer);
+
+                // Content
+                const content = document.createElement('div');
+                content.className = 'property-content';
+
+                const header = document.createElement('div');
+                header.className = 'property-header';
+
+                const titleLocation = document.createElement('div');
+                
+                const title = document.createElement('div');
+                title.className = 'property-title';
+                title.textContent = property.title;
+                titleLocation.appendChild(title);
+
+                const location = document.createElement('div');
+                location.className = 'property-location';
+                location.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${property.location}`;
+                titleLocation.appendChild(location);
+
+                header.appendChild(titleLocation);
+
+                // Rating
+                const rating = document.createElement('div');
+                rating.className = 'rating';
+                rating.innerHTML = `
+                    <i class="fas fa-star star-icon"></i>
+                    <span class="rating-value">${property.rating}</span>
+                `;
+                header.appendChild(rating);
+
+                content.appendChild(header);
+
+                // Features
+                const features = document.createElement('div');
+                features.className = 'property-features';
+                features.textContent = `${property.bedrooms} bedroom · ${property.beds} bed · ${property.bathrooms} bathroom`;
+                content.appendChild(features);
+
+                // Price
+                const price = document.createElement('div');
+                price.className = 'property-price';
+                price.innerHTML = `
+                    <span class="price">${property.price.toLocaleString()}</span>
+                    <span class="night">/ night</span>
+                `;
+                content.appendChild(price);
+
+                // Book Now Button
+                const bookNowBtn = document.createElement('button');
+                bookNowBtn.className = 'book-now-button';
+                bookNowBtn.textContent = 'Book Now';
+                bookNowBtn.addEventListener('click', () => openBookingModal(property));
+                content.appendChild(bookNowBtn);
+
+                card.appendChild(content);
+
+                gridContainer.appendChild(card);
+            });
+        }
+
+        // Filters
+        function applyFilters() {
+            let loc = locationFilter.value;
+            let minPrice = parseInt(minPriceInput.value, 10) || 0;
+            let maxPrice = parseInt(maxPriceInput.value, 10) || Infinity;
+            let beds = bedsFilter.value;
+            let bedrooms = bedroomsFilter.value;
+            let bathrooms = bathroomsFilter.value;
+            let guests = guestsFilter.value;
+
+            filteredProperties = properties.filter(prop => {
+                let locationMatch = false;
+                
+                if (loc === "all") {
+                    locationMatch = true;
+                } else if (loc === "abuja") {
+                    // Match any Abuja location
+                    locationMatch = prop.location.toLowerCase().includes("abuja");
+                } else {
+                    // Match specific city within Abuja
+                    locationMatch = prop.location.toLowerCase().includes(loc.toLowerCase());
+                }
+
+                let priceMatch =
+                    prop.price >= minPrice &&
+                    prop.price <= maxPrice;
+
+                let bedsMatch =
+                    beds === "all" ||
+                    (beds === "3" ? prop.beds >= 3 : prop.beds == beds);
+
+                let bedroomsMatch =
+                    bedrooms === "all" ||
+                    (bedrooms === "4" ? prop.bedrooms >= 4 : prop.bedrooms == bedrooms);
+
+                let bathroomsMatch =
+                    bathrooms === "all" ||
+                    (bathrooms === "3" ? prop.bathrooms >= 3 : prop.bathrooms == bathrooms);
+
+                let guestsMatch =
+                    guests === "all" ||
+                    (guests === "4" ? prop.beds >= 4 : prop.beds >= guests);
+
+                return locationMatch && priceMatch && bedsMatch && bedroomsMatch && bathroomsMatch && guestsMatch;
+            });
+
+            renderGrid(filteredProperties);
+        }
+
+        applyFiltersBtn.addEventListener('click', applyFilters);
+
+        // Booking Modal Functions
+        function openBookingModal(property) {
+            selectedProperty = property;
+            bookingPropertyTitle.textContent = `${property.title} - ${property.location}`;
+            propertyIdInput.value = property.id;
+            propertyNameInput.value = property.title;
+            propertyLocationInput.value = property.location;
+            propertyPriceInput.value = property.price;
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            checkinInput.min = today;
+            checkoutInput.min = today;
+            
+            // Reset form
+            bookingForm.reset();
+            nightsInput.value = '';
+            totalPriceInput.value = '';
+            
+            // Hide success message and show form
+            successMessage.style.display = 'none';
+            bookingForm.style.display = 'grid';
+            
+            bookingModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            bookingModal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function calculateNightsAndPrice() {
+            if (checkinInput.value && checkoutInput.value) {
+                const checkin = new Date(checkinInput.value);
+                const checkout = new Date(checkoutInput.value);
+                
+                // Make sure checkout is after checkin
+                if (checkout > checkin) {
+                    const nights = Math.ceil((checkout - checkin) / (1000 * 60 * 60 * 24));
+                    nightsInput.value = nights;
+                    totalPriceInput.value = '₦' + (nights * selectedProperty.price).toLocaleString();
+                } else {
+                    nightsInput.value = '';
+                    totalPriceInput.value = '';
+                }
+            }
+        }
+
+        checkinInput.addEventListener('change', calculateNightsAndPrice);
+        checkoutInput.addEventListener('change', calculateNightsAndPrice);
+
+        // Form submission
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, this would use Formspree's API
+            // For demo purposes, we'll just show the success message
+            bookingForm.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+            // In a real implementation, you would submit to Formspree here
+            // You would need to replace "YOUR_FORM_ID" with your actual Formspree form ID
+            console.log('Form data:', {
+                property_id: propertyIdInput.value,
+                property_name: propertyNameInput.value,
+                property_location: propertyLocationInput.value,
+                property_price: propertyPriceInput.value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                guests: document.getElementById('guests').value,
+                checkin: checkinInput.value,
+                checkout: checkoutInput.value,
+                nights: nightsInput.value,
+                total_price: totalPriceInput.value,
+                message: document.getElementById('message').value
+            });
+        });
+
+        closeBookingModalBtn.addEventListener('click', closeBookingModal);
+        closeSuccessMessageBtn.addEventListener('click', closeBookingModal);
+
+        // Gallery Modal Functions
+        function openGalleryModal(images, startIdx = 0) {
+            modalImages = images;
+            modalImageIndex = startIdx;
+            updateGalleryModalImage();
+            galleryModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            galleryModal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        function updateGalleryModalImage() {
+            modalImage.src = modalImages[modalImageIndex];
+            // Update thumbnails
+            modalThumbnails.innerHTML = '';
+            modalImages.forEach((img, idx) => {
+                const thumb = document.createElement('img');
+                thumb.className = 'modal-thumbnail' + (idx === modalImageIndex ? ' active' : '');
+                thumb.src = img;
+                thumb.alt = "Gallery Image " + (idx + 1);
+                thumb.addEventListener('click', () => {
+                    modalImageIndex = idx;
+                    updateGalleryModalImage();
+                });
+                modalThumbnails.appendChild(thumb);
+            });
+        }
+
+        closeGalleryModalBtn.addEventListener('click', closeGalleryModal);
+
+        prevModalBtn.addEventListener('click', () => {
+            modalImageIndex = (modalImageIndex - 1 + modalImages.length) % modalImages.length;
+            updateGalleryModalImage();
+        });
+
+        nextModalBtn.addEventListener('click', () => {
+            modalImageIndex = (modalImageIndex + 1) % modalImages.length;
+            updateGalleryModalImage();
+        });
+
+        // Close modals when clicking outside content
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) closeBookingModal();
+        });
+
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) closeGalleryModal();
+        });
+
+        // Set minimum date for check-in to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkin-date').min = today;
+        document.getElementById('checkout-date').min = today;
+
+        // Initial render
+        renderGrid(filteredProperties);
+
+    </script>
+</body>
+</html>
