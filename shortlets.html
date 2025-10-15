@@ -978,7 +978,7 @@
                     <p class="modal-subtitle" id="booking-property-title">Luxury Apartment in Abuja</p>
                 </div>
                 
-                <form id="booking-form" class="booking-form" action="https://formspree.io/f/meolwjvn" method="POST">
+                <form id="booking-form" class="booking-form">
                     <input type="hidden" id="property-id" name="property_id">
                     <input type="hidden" id="property-name" name="property_name">
                     <input type="hidden" id="property-location" name="property_location">
@@ -1306,6 +1306,9 @@
         let modalImageIndex = 0;
         let selectedProperty = null;
 
+        // WhatsApp Configuration
+        const WHATSAPP_NUMBER = "+2349061407613";
+
         // Properties Grid Rendering
         function renderGrid(propertiesList) {
             gridContainer.innerHTML = '';
@@ -1499,18 +1502,69 @@
         checkinInput.addEventListener('change', calculateNightsAndPrice);
         checkoutInput.addEventListener('change', calculateNightsAndPrice);
 
+        // WhatsApp Integration Functions
+        function sendWhatsAppMessage(formData) {
+            // Format the message for WhatsApp
+            const message = formatBookingMessage(formData);
+            
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Create WhatsApp URL
+            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappURL, '_blank');
+        }
+
+        function formatBookingMessage(formData) {
+            const {
+                property_name,
+                property_location,
+                property_price,
+                name,
+                email,
+                phone,
+                guests,
+                checkin,
+                checkout,
+                nights,
+                total_price,
+                message
+            } = formData;
+            
+            return `🏠 *NEW BOOKING REQUEST* 🏠
+
+*Property Details:*
+• ${property_name}
+• Location: ${property_location}
+• Price per night: ₦${parseInt(property_price).toLocaleString()}
+
+*Guest Information:*
+• Name: ${name}
+• Email: ${email}
+• Phone: ${phone}
+• Number of Guests: ${guests}
+
+*Booking Details:*
+• Check-in: ${checkin}
+• Check-out: ${checkout}
+• Nights: ${nights}
+• Total Price: ${total_price}
+
+*Special Requests:*
+${message || 'No special requests'}
+
+---
+This booking request was submitted through Pegasus Luxury Shortlets website.`;
+        }
+
         // Form submission
         bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // In a real implementation, this would use Formspree's API
-            // For demo purposes, we'll just show the success message
-            bookingForm.style.display = 'none';
-            successMessage.style.display = 'block';
-            
-            // In a real implementation, you would submit to Formspree here
-            // You would need to replace "YOUR_FORM_ID" with your actual Formspree form ID
-            console.log('Form data:', {
+            // Collect form data
+            const formData = {
                 property_id: propertyIdInput.value,
                 property_name: propertyNameInput.value,
                 property_location: propertyLocationInput.value,
@@ -1524,7 +1578,14 @@
                 nights: nightsInput.value,
                 total_price: totalPriceInput.value,
                 message: document.getElementById('message').value
-            });
+            };
+            
+            // Send to WhatsApp
+            sendWhatsAppMessage(formData);
+            
+            // Show success message
+            bookingForm.style.display = 'none';
+            successMessage.style.display = 'block';
         });
 
         closeBookingModalBtn.addEventListener('click', closeBookingModal);
